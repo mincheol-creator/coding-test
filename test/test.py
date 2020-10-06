@@ -3,38 +3,19 @@ sys.stdin = open('input_test.txt')
 
 ts=int(input())
 for t in range(1, ts+1):
-    print(f'#{t}')
-    Ns=int(input())
     arr=[]
-
-    count=Ns//50000
-    print(count,end=" ")
-    Ns-=50000*count
-
-    count=Ns//10000
-    print(count,end=" ")
-    Ns-=10000*count
-
-    count=Ns//5000
-    print(count,end=" ")
-    Ns-=5000*count
-
-    count=Ns//1000
-    print(count,end=" ")
-    Ns-=1000*count
-
-    count=Ns//500
-    print(count,end=" ")
-    Ns-=500*count
-
-    count=Ns//100
-    print(count,end=" ")
-    Ns-=100*count
-
-    count=Ns//50
-    print(count,end=" ")
-    Ns-=50*count
-
-    count=Ns//10
-    print(count,end=" ")
-    print()
+    answer=1
+    for i in range(9):
+        arr.append(list(map(int, input().split())))
+    for row in arr:
+        if [1,2,3,4,5,6,7,8,9]!=sorted(row):
+            answer=0
+            break
+    for i in range(9):
+        temp=[]
+        for col in arr:
+            temp.append(col[i])
+        if [1,2,3,4,5,6,7,8,9]!=sorted(temp):
+            answer=0
+            break
+    print(f'#{t} {answer}')
